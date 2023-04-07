@@ -36,6 +36,14 @@ public class DashaMap implements HashMapX{
 
     @Override
     public String get(String key) {
+        int index = hashFunctionOne(key);
+        Node current = arr[index];
+        while (current != null){
+            if(current.getKey().equals(key)){
+                return current.getValue();
+            }
+            current = current.getNext();
+        }
         return null;
     }
 

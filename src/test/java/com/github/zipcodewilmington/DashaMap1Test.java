@@ -1,5 +1,7 @@
 package com.github.zipcodewilmington;
 
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -8,7 +10,40 @@ import org.junit.Test;
  * @date 10/21/19 9:05 AM
  */
 public class DashaMap1Test {
+    DashaMap map;
+    @Before
+    public void before(){
+        map = new DashaMap();
+    }
     @Test
-    public void setTest() {
+    public void testSet() {
+        String key = "key";
+        String value = "value";
+        long expected = 1;
+
+        map.set(key, value);
+        long actual = map.bucketSize("k");
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testDelete() {
+    }
+
+    @Test
+    public void testGet() {
+    }
+
+    @Test
+    public void testisEmpty() {
+    }
+
+    @Test
+    public void testSize() {
+    }
+
+    @Test
+    public void testBucketSize() {
     }
 }

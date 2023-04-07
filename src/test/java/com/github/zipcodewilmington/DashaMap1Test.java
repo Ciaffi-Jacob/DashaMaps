@@ -50,11 +50,16 @@ public class DashaMap1Test {
         String actual = map.get(key);
 
         Assert.assertEquals(value, actual);
-
     }
 
     @Test
-    public void testisEmpty() {
+    public void testisEmpty1() {
+        String key = "e";
+        String value = "bob";
+
+        map.set(key, value);
+
+        Assert.assertFalse(map.isEmpty());
     }
 
     @Test

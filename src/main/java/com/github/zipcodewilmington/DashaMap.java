@@ -41,16 +41,16 @@ public class DashaMap implements HashMapX{
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size() == 0;
     }
 
     @Override
     public long size() {
         int count = 0;
-        for (int i = 0; i < arr.length; i++) {
-            Node current = arr[i];
+        for (Node node : arr) {
+            Node current = node;
 
-            while (current != null){
+            while (current != null) {
                 count++;
                 current = current.getNext();
             }

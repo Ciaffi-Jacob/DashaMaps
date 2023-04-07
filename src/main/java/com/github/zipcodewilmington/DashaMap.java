@@ -9,10 +9,24 @@ import com.github.zipcodewilmington.sample.Node;
  * @date 10/21/19 9:05 AM
  */
 public class DashaMap implements HashMapX{
-    Node[] array = new Node[26];
+    Node[] arr = new Node[26];
+    private int hashFunctionOne(String input) {
+        if (input.length() > 0) {
+            return input.toLowerCase().charAt(0) - 97;
+        }
+        return -1;
+    }
     @Override
     public void set(String key, String value) {
-
+    int index = hashFunctionOne(key);
+    Node current = arr[index];
+    if(current == null){
+        current = new Node(key, value);
+    }
+    while (current.getNext() != null){
+        current = current.getNext();
+    }
+        current.setNext(new Node(key, value));
     }
 
     @Override

@@ -9,7 +9,7 @@ import org.junit.Test;
  * @version 1.0.0
  * @date 10/21/19 9:05 AM
  */
-public class DashaMap1Test {
+public class DashaMapTest {
     DashaMap map;
     @Before
     public void before(){

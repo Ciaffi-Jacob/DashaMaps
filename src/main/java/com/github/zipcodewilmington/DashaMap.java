@@ -21,7 +21,8 @@ public class DashaMap implements HashMapX{
     int index = hashFunctionOne(key);
     Node current = arr[index];
     if(current == null){
-        current = new Node(key, value);
+        arr[index] = new Node(key, value);
+        return;
     }
     while (current.getNext() != null){
         current = current.getNext();
@@ -31,6 +32,21 @@ public class DashaMap implements HashMapX{
 
     @Override
     public String delete(String key) {
+        if(bucketSize(key) < 2){
+            arr[hashFunctionOne(key)] = null;
+        }
+        Node current = arr[hashFunctionOne(key)];
+        Node previous = null;
+        while (current != null){
+            if(current.getKey().equals(key)){
+                String val = current.getValue();
+                current = current.getNext();
+                previous.setNext(current);
+                return val;
+            }
+            previous = current;
+            current = current.getNext();
+        }
         return null;
     }
 

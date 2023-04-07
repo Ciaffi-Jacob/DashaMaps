@@ -42,6 +42,15 @@ public class DashaMap1Test {
 
     @Test
     public void testGet() {
+        String key = "key";
+        String value = "value";
+
+        map.set(key, value);
+        map.delete(key);
+        String actual = map.get(key);
+
+        Assert.assertEquals(value, actual);
+
     }
 
     @Test

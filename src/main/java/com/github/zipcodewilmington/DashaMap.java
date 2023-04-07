@@ -46,11 +46,27 @@ public class DashaMap implements HashMapX{
 
     @Override
     public long size() {
-        return 0;
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            Node current = arr[i];
+
+            while (current != null){
+                count++;
+                current = current.getNext();
+            }
+        }
+
+        return count;
     }
 
     @Override
     public long bucketSize(String key) {
-        return -1;
+        long count = 0;
+        Node current = arr[hashFunctionOne(key)];
+        while (current != null){
+            count++;
+            current = current.getNext();
+        }
+        return count;
     }
 }

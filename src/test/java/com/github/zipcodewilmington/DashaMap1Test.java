@@ -29,6 +29,15 @@ public class DashaMap1Test {
 
     @Test
     public void testDelete() {
+        String key = "key";
+        String value = "value";
+        long expected = 1;
+
+        map.set(key, value);
+        map.delete(key);
+        long actual = map.bucketSize("k");
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test

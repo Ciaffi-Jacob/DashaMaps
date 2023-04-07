@@ -53,7 +53,7 @@ public class DashaMap1Test {
     }
 
     @Test
-    public void testisEmpty1() {
+    public void testisEmpty() {
         String key = "e";
         String value = "bob";
 
@@ -64,6 +64,14 @@ public class DashaMap1Test {
 
     @Test
     public void testSize() {
+        long expected = 2;
+
+        map.set("a", "yup");
+        map.set("b", "yeah");
+
+        long actual = map.size();
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
